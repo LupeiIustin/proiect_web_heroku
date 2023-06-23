@@ -33,14 +33,14 @@ const server = require("http")
       fileStream.pipe(response);
       
     }
-    else if (req.url === '/favicon.ico') {
-      const faviconPath = path.join(__dirname, 'public', 'favicon.ico');
+    else if (request.url === '/favicon.ico') {
+      const faviconPath = path.join(__dirname, 'src\\static\\img', 'someri.ico');
       const faviconStream = fs.createReadStream(faviconPath);
   
-      res.statusCode = 200;
-      res.setHeader('Content-Type', 'image/x-icon');
+      response.statusCode = 200;
+      response.setHeader('Content-Type', 'image/x-icon');
   
-      faviconStream.pipe(res);
+      faviconStream.pipe(response);
     } 
     else if (request.url === "/home.html") {
 

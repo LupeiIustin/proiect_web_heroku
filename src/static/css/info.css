@@ -1,0 +1,145 @@
+.bodyinfo {
+    font-family: Roboto, sans-serif;
+    width: 90%;
+    height: 30%;
+    margin: 0;
+    padding: 0;
+    color: #FFF;
+    background: #FAFAFA;
+    position: fixed;
+    bottom: -10px;
+
+  }
+  
+  .h1info {
+    font-weight: 700;
+    font-size: 64px;
+    margin: 20px 0 0 0;
+    padding: 0 20px;
+  }
+  
+  .pinfo {
+    font-size: 16px;
+    padding: 0 20px;
+  }
+  
+  .eminfo {
+    font-style: normal;
+    color: #5c17aa;
+  }
+  
+  .ainfo {
+    font-style: normal;
+    color: #0b0d7a;
+    text-decoration: none;
+    padding-right: 10px;
+    cursor: pointer;
+  }
+  
+  .subinfo {
+    margin: 0;
+  }
+  
+  .buttoninfo {
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    display: inline-block;
+    font-size: 25px;
+    line-height: 35px;
+    font-weight: bold;
+    /* -webkit-transform: rotate(0deg); 
+            transform: rotate(45deg); */
+    -webkit-transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    
+  }
+
+   .containerinfo:hover  {
+    transition: 30ms;
+    background-color:rgb(57, 20, 169);
+  }
+  
+  .expandinfo .buttoninfo {
+    -webkit-transform: rotate(630deg);
+            transform: rotate(630deg);
+    -webkit-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .containerinfo {
+    position: fixed;
+    margin: auto;
+    left: 53%;
+    top: 47%;
+    background-color: rgb(84, 106, 219);
+    border-radius: 50%;
+    width: 35px;
+    max-width: 35px;
+    height: 35px;
+    text-align: center;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    overflow: hidden;
+    -webkit-transition: all 0.2s 0.45s, height 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.25s, max-width 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.35s, width 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.35s;
+    transition:  all 0.2s 0.45s, height 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.25s, max-width 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.35s, width 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.35s;
+  }
+  
+  .containerinfo.expandinfo {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.17);
+    border-radius: 0;
+    width: 80%;
+    height: 300px;
+    max-width: 600px;
+    padding: 0;
+    -webkit-transition: all 0.2s, max-width 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.1s, height 0.3s ease 0.25s;
+    transition: all 0.2s, max-width 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.1s, height 0.3s ease 0.25s;
+  }
+  
+  .contentinfo {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    text-align: left;
+    -webkit-transition: opacity 0.2s 0.2s, -webkit-transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 0.2s 0.2s, -webkit-transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s 0.2s;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s 0.2s, -webkit-transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .expandinfo .contentinfo {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+    opacity: 1;
+    -webkit-transition: opacity 0s, -webkit-transform 0.7s cubic-bezier(0.4, 0, 0.2, 1) 0.05s;
+    transition: opacity 0s, -webkit-transform 0.7s cubic-bezier(0.4, 0, 0.2, 1) 0.05s;
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1) 0.05s, opacity 0s;
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1) 0.05s, opacity 0s, -webkit-transform 0.7s cubic-bezier(0.4, 0, 0.2, 1) 0.05s;
+  }
+  
+  .contentinfo .headinfo {
+    padding: 0 0 20px 0;
+  }
+  
+  .contentinfo .bodyinfo {
+    color: #000;
+    color: rgba(0, 0, 0, 0.87);
+    background-color: #FFF;
+    width: 100%;
+    height: 100%;
+    padding: 10px 0;
+    box-sizing: border-box;
+  }
+  
+  .action-barinfo {
+    padding-left: 15px;
+    border-top: 1px solid #E0E0E0;
+    width: 100%;
+  }
+  
+  .action-barinfo ainfo {
+    text-transform: uppercase;
+    line-height: 52px;
+    color: #0008ff;
+  }

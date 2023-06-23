@@ -1,0 +1,30 @@
+/* harta */
+svg {
+    top: 50%;
+    font-family: "Montserrat", sans-serif;
+    
+}
+svg path {
+    fill: rgb(252, 252, 252);     /*#00394f; */
+    stroke: rgb(128, 128, 128);
+    stroke-width: .25;
+    top: 60%;
+ 
+}
+
+svg path:hover {
+    fill: #013e53;    /* #006284; */
+    transition: 0.6;
+    cursor: pointer;
+    position: fixed;
+}
+
+.colour0 {fill: #75e6de;}
+.colour1 {fill: #7b9cd9;}
+.colour2 {fill: #77aa3d;}
+.colour3 {fill: #fcd45b;}
+.colour4 {fill: #f2b31f;}
+.colour5 {fill: #b72121;}
+
+
+    

@@ -1,0 +1,142 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    /* color: linear-gradient(to bottom, #523cf3, #223f7c, #523cf3); */
+    /* background: #272727; */
+    background: linear-gradient(to bottom, #110d35, #172b56, #0f0b31);
+    font-family: "Montserrat", sans-serif;
+    min-height: 100vh;
+}
+
+h1{
+    color: #f6f4e6;
+    font-family: "Montserrat", sans-serif;
+    position: absolute;
+    text-align: center; 
+    top: 0;
+    left: 35%;
+    position: fixed;
+}
+h2{
+    color: rgb(255, 255, 255);
+    font-family: "Montserrat", sans-serif;
+    position: absolute;
+    top: 7%;
+    left: 48.5%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    position: fixed;
+  }
+/* Style nav menu */
+.navMenu {  
+    /* margin-right:50px;
+    gap: 33px; */
+    position: absolute;
+    top: 18%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+  
+  .navMenu a {
+    color:  rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    font-weight: 500;
+    display: inline-block;
+    width: 180px;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .navMenu a:hover {
+    color: #151413;
+  }
+  
+  .navMenu .dot {
+    width: 6px;
+    height: 6px;
+    background: #013e53;
+    border-radius: 50%;
+    opacity: 0;
+    -webkit-transform: translateX(70px);
+    transform: translateX(70px);
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .navMenu a:nth-child(1):hover ~ .dot {
+    -webkit-transform: translateX(70px);
+    transform: translateX(70px);
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    opacity: 1;
+  }
+  
+  .navMenu a:nth-child(2):hover ~ .dot {
+    -webkit-transform: translateX(240px);
+    transform: translateX(240px);
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    opacity: 1;
+  }
+  
+  .navMenu a:nth-child(3):hover ~ .dot {
+    -webkit-transform: translateX(420px);
+    transform: translateX(420px);
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    opacity: 1;
+  }
+  
+  .navMenu a:nth-child(4):hover ~ .dot {
+    -webkit-transform: translateX(600px);
+    transform: translateX(600px);
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    opacity: 1;
+  }
+  
+
+/* Style nav bar */
+.navbar {
+    background-color: rgb(255, 255, 255);
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    
+}
+
+/* Style the links inside the navigation bar */
+.navbar a {
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    color: #151413;
+    font-family: "Montserrat", sans-serif;
+}
+
+#logout1{
+  position: fixed;
+  bottom: 0px;
+  right: 0px; 
+}
+
+/* Change the color of links on hover */
+.navbar a:hover {
+    color: #013e53;
+}
+
+
+

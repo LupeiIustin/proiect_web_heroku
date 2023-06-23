@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html> 
+    <head>
+        <title>Pie</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=0.86, maximum-scale=5.0, minimum-scale=0.86">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/css/bootstrap-select.min.css">
+        <link rel="stylesheet" type="text/css" href="../static/css/toogleSwitch.css" />
+        <link rel="stylesheet" type="text/css" href="../static/css/slider.css" />
+        <link rel="stylesheet" type="text/css" href="../static/css/menu.css" />
+        <link rel="stylesheet" type="text/css" href="../static/css/main.css" />
+        <link rel="stylesheet" type="text/css" href="../static/css/info.css" />
+        
+        <script type='module' src="../static/js/grafic.js"></script>
+
+    </head>
+    <body>
+        
+       <h1> Vizualizare Pie Chart</h1>
+
+       <canvas id="myChart" style="width:100%;max-width:1100px; margin-top: 70px; margin-right: 100px;"></canvas>
+
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
+
+<!-- meniu butoane si slider -->
+            
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+            <!-- slider -->
+      <div style = "position:absolute; left:810px; top:70px; " > 
+        
+        <div class="double_range_slider_box">
+          <div class="double_range_slider">
+            <span class="range_track" id="range_track"></span>
+      
+            <input type="range" class="min" min="1" max="13" value="1" step="1">
+            <input type="range" class="max" min="0" max="12" value="2" step="1">
+      
+            <div class="minvalue"></div>
+            <div class="maxvalue"></div>
+          </div>
+          <!-- <script type='module' src="../static/js/cartografic.js"></script> -->
+        </div>
+
+
+        <!-- buton info -->
+       <div class="containerinfo" ><span class="buttoninfo">🛈</span>
+        
+        <div class="contentinfo">
+          <div class="headinfo">
+            <h1info style="text-align: center;">&nbsp</h1info>
+          
+          </div>
+          <div class="bodyinfo">
+            <p style="margin-bottom: 10px; margin-left: 20px; margin-right: 10px; margin-top: 30px; width: 540px;">
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              Vizualizare tip pie chart a somajului in Romania. Datele privind somajul pot fi vizualizate pe diferite criterii:
+              varsta, sex, studii, etc. Pentru a vizualiza statisticile selectati judetele dorite si apasati unul din cele 4 butoane din dreapta paginii
+              si selectati parametrii statisticilor. 
+            </p>
+            <p style="margin-bottom: 10px; margin-left: 20px; margin-right: 10px; width: 540px;">
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              Este posibila vizualizarea datelor fie raportat la populatia civila a judetului(Rata somajului%) fie numarul somerilor
+              din fiecare judet.
+            </p>
+            <p style="margin-bottom: 10px; margin-left: 20px; margin-right: 10px; width: 540px;">
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              De asemenea, pot fi selectate ultimele 12 luni pentru vizualizare, luna 1 fiind martie 2023 iar luna 12 mai 2022.
+            </p>
+            
+          </div>
+        </div>
+      </div>
+      <script>
+          $('.buttoninfo').click(function () {
+        $(this).parent().toggleClass('expandinfo');     
+      });
+      
+      </script>
+      
+      
+
+        <!-- toggle switch -->
+        <div class="containerswitch">
+          <div class="off">Rata somaj</div>
+          <label class="switch">
+            <input id="check" type="checkbox">
+            <span class="toggle"></span>
+          </label>
+          <div class="on">Numar someri</div>
+          </div>
+
+        <!-- mediu si submeniu -->
+        <div class="dropdown">
+            <button class="button" id="button1">Varsta</button>
+            <div >
+              <a id="Sub 25 ani"> sub 25 ani </a>
+              <a id="25 - 29 ani">25-29 ani</a>
+              <a id="30 - 39 ani">30-39 ani</a>
+              <a id="40 - 49 ani">40-49 ani</a>
+              <a id="50 - 55 ani">50-55 ani</a>
+              <a id="peste 55 ani">peste 55 ani</a>
+              
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="button" id="button2">Totală şi pe sexe</button>
+            <div >
+                <a id="Numar total someri "> total someri</a>
+                <a id="Numar total someri femei  ">  someri femei  </a>
+                <a id="Numar total someri barbati  ">  someri barbati</a>
+                <a id="Numar  someri indemnizati  "> someri indemnizati</a>
+                <a id="Numar someri neindemnizati "> someri neindemnizati </a>
+                <a id="Rata somajului (%)  "> rata somajului totala </a>
+                <a id="Rata somajului Feminina (%)  ">rata somajului feminina</a>
+                <a id="Rata somajului Masculina (%)  ">rata somajului masculina</a>
+
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="button" id="button3">Nivel educatie</button>
+            <div >
+                <a id="Total someri, din care: ">total someri </a>
+                <a id="fara studii">fara studii </a>
+                <a id="invatamant primar ">invatamant primar  </a>
+                <a id="invatamant gimnazial ">invatamant gimnazial </a>
+                <a id="invatamant liceal">invatamant liceal </a>
+                <a id="invatamant posticeal">invatamant postliceali </a>
+                <a id="invatamant profesional/arte si meserii">invatamant profesional/arte si meserii </a>
+                <a id="invatamant universitar">invatamant universitar </a>
+
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="button" id="button4">Mediu Urban/Rural</button>
+            <div >
+                <a id="NUMAR TOTAL SOMERI ">total someri</a>
+                <a id="NUMAR TOTAL SOMERI FEMEI  ">total someri femei</a>
+                <a id="NUMAR TOTAL SOMERI BARBATI ">total someri barbati</a>
+                <a id="NUMAR TOTAL SOMERI DIN MEDIUL URBAN ">someri mediu urban</a>
+                <a id="NUMAR SOMERI FEMEI DIN MEDIUL URBAN ">someri femei mediu urban</a>
+                <a id="NUMAR SOMERI BARBATI DIN MEDIUL URBAN ">someri barbati mediu urban</a>
+                <a id="NUMAR TOTAL SOMERI DIN MEDIUL RURAL ">total someri mediu rural</a>
+                <a id="NUMAR SOMERI FEMEI DIN MEDIUL RURAL ">someri femei mediu rural</a>
+                <a id="NUMAR SOMERI BARBATI DIN MEDIUL RURAL ">someri barbati mediu rural</a>
+
+            </div>
+        </div>
+
+       </div>
+
+       <!-- selector -->
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/js/bootstrap-select.min.js"></script>
+     
+     <div class="container">
+
+     <select id='selector' class="selectpicker" data-style="btn-primary" multiple data-max-options="20">
+        <option value="1">ALBA</option>
+        <option value="2">ARAD</option>
+        <option value="3">ARGES</option>
+        <option value="4">BACAU</option>
+        <option value="5">BIHOR</option>
+        <option value="6">BISTRITA NASAUD</option>
+        <option value="7">BOTOSANI</option>
+        <option value="8">BRAILA</option>
+        <option value="9">BRASOV</option>
+        <option value="10">BUCURESTI</option>
+        <option value="11">BUZAU</option>
+        <option value="12">CALARASI</option>
+        <option value="13">CARAS-SEVERIN</option>
+        <option value="14">CLUJ</option>
+        <option value="15">CONSTANTA</option>
+        <option value="16">COVASNA</option>
+        <option value="17">DAMBOVITA</option>
+        <option value="18">DOLJ</option>
+        <option value="19">GALATI</option>
+        <option value="20">GIURGIU</option>
+        <option value="21">GORJ</option>
+        <option value="22">HARGHITA</option>
+        <option value="23">HUNEDOARA</option>
+        <option value="24">IALOMITA</option>
+        <option value="25">IASI</option>
+        <option value="26">ILFOV</option>
+        <option value="27">MARAMURES</option>
+        <option value="28">MEHEDINTI</option>
+        <option value="29">MURES</option>
+        <option value="30">NEAMT</option>
+        <option value="31">OLT</option>
+        <option value="32">PRAHOVA</option>
+        <option value="33">SATU MARE</option>
+        <option value="34">SALAJ</option>
+        <option value="35">SIBIU</option>
+        <option value="36">SUCEAVA</option>
+        <option value="37">TELEORMAN</option>
+        <option value="38">TIMIS</option>
+        <option value="39">TULCEA</option>
+        <option value="40">VALCEA</option>
+        <option value="41">VASLUI</option>
+        <option value="42">VRANCEA</option>
+       </select>
+      
+
+    
+     </div>
+
+
+
+
+
+
+
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+       
+
+        <div class="navbar">
+            <a href="./home.html" class="active">Home</a>
+            <a href="./contact.html">About us</a>
+            <div class="dropup">
+              <a id="download"   >Download</a>
+                <div class="dropup-content" >
+                  <x id="getPDF">as PDF</x>
+                  <x id="getJPG">as JPG</x>
+                </div>
+          </div>
+            <a id="logout1" onclick="delete_cookie('jwt', '/')" href="./home.html" style="bottom: 20px;">Logout</a>
+            <script src="../static/js/logout.js"></script>
+        </div>
+    </body>
+</html>

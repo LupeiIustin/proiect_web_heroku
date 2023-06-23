@@ -16,7 +16,7 @@ function cartograficController(req, res) {
             cookieHeader.split(`;`).forEach(cookie => {
                 let [name, ...rest] = cookie.split(`=`)
                 console.log([name, ...rest])
-                if(name === " jwt") {
+                if(name.trim() == "jwt") {
                 value = rest.join(`=`).trim()
                 console.log(value)
                 if(value) {

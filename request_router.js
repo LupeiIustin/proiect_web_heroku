@@ -1,6 +1,6 @@
-const control1 = require("./controllers");
+const control1 = require("./src/controllers");
 const fs = require('fs');
-const mongodbConnect = require('./models/database').mongodbConnect
+const mongodbConnect = require('./src/models/database').mongodbConnect
 const path = require("path");
 
 

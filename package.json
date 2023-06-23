@@ -14,6 +14,7 @@
   "main": "request_router.js",
   "devDependencies": {},
   "scripts": {
+    "start": "node request_router.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

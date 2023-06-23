@@ -34,7 +34,7 @@ const server = require("http")
       
     }
     else if (request.url === '/favicon.ico') {
-      const faviconPath = path.join(__dirname, 'src\\static\\img', 'someri.ico');
+      const faviconPath = path.join(__dirname, 'src/static/img', 'someri.ico');
       const faviconStream = fs.createReadStream(faviconPath);
   
       response.statusCode = 200;

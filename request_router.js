@@ -33,6 +33,15 @@ const server = require("http")
       fileStream.pipe(response);
       
     }
+    else if (req.url === '/favicon.ico') {
+      const faviconPath = path.join(__dirname, 'public', 'favicon.ico');
+      const faviconStream = fs.createReadStream(faviconPath);
+  
+      res.statusCode = 200;
+      res.setHeader('Content-Type', 'image/x-icon');
+  
+      faviconStream.pipe(res);
+    } 
     else if (request.url === "/home.html") {
 
       control1.homeController(request, response);

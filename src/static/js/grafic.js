@@ -166,9 +166,9 @@ function getSelectedCounties(){
   return selected;
 }
 
-function colourCountries(field, month_min, month_max,  url){
+async function colourCountries(field, month_min, month_max,  url){
 
-    fetch(url, {
+    await fetch(url, {
       method: 'GET',
       headers: {  
           'Content-Type': 'application/json',

@@ -157,9 +157,9 @@ function full (counties, month_min, month_max, url, graphicID,){
 }
  
  
-function prepare(counties, month_min, month_max, url, graphicID){
+async function prepare(counties, month_min, month_max, url, graphicID){
 
-   fetch(url, {
+   await fetch(url, {
      method: 'GET',
      headers: {  
          'Content-Type': 'application/json',

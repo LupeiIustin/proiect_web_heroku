@@ -8,5 +8,15 @@
     "jszip": "^3.10.1",
     "mongodb": "^5.6.0",
     "svg-to-pdfkit": "^0.1.8"
-  }
+  },
+  "name": "src",
+  "version": "1.0.0",
+  "main": "request_router.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
